@@ -11,7 +11,7 @@ class BSeq:
     __min_prime_value = 2
 
     # Конструктор класса
-    def __init__(self, number=17, shift_array=[0], shift_registers=1):
+    def __init__(self, number=17, shift_array=[1], shift_registers=1):
         self.number = number  # Простое число
         self.shift_array = shift_array  # Сдвиг
         self.shift_registers = shift_registers  # Количество сдвиговых регистров
@@ -21,7 +21,9 @@ class BSeq:
         try:
             if len(self.shift_array) != self.shift_registers:
                 raise ValueError
-            if (self.shift_registers < 1) or (self.shift_registers > 4):
+            elif (self.shift_registers < 1) or (self.shift_registers > 4):
+                raise ValueError
+            elif (len(self.shift_array) == 1) and (self.shift_array[0] == 0):
                 raise ValueError
         except ValueError:
             return f'#ERROR:  {self.shift_registers} - a wrong number of shift registers or shifts!\n'
