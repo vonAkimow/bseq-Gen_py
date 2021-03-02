@@ -1,1 +1,0 @@
-/opt/pycharm-community-2020.3.3/bin/pycharm.sh
